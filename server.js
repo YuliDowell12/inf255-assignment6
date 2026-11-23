@@ -101,11 +101,11 @@ app.get("/api/animals", (req, res) => {
 
 app.get("/api/animals/:id", (req, res) => {
   const animal = animals.find((a) => a.id === Number(req.params.id));
-  if (animal) {
-    res.json(animal);
-  } else {
+  if (!animal) {
     res.status(404).json({ error: "Animal not found" });
   }
+
+  res.json(animal);
 });
 
 // TODO 3: GET /api/available-animals and GET /api/adopted-animals
