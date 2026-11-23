@@ -30,7 +30,7 @@ async function loadAnimals() {
 
   try {
     // TODO 4: Load the animals from your API instead of the JSON file.
-    const response = await fetch("/api/animals");
+    const response = await fetch("/api/animals"); // this is the endpoint that i created in server.js, it'll return the animals array from the server as a JSON object now.
 
     // A 404 or 500 still comes back as a response, so check it.
     if (!response.ok) {

@@ -8,7 +8,7 @@
 import express from "express";
 
 const app = express();
-const port = 3000;
+const port = 3000; // i underdtand this is the port that the server will listen to, but i dont udnerstand why it specifically has to be 3000? I thought it changes, but maybe not.
 
 // ------------------------------------
 // Animal Data
@@ -102,7 +102,7 @@ app.get("/api/animals", (req, res) => {
 app.get("/api/animals/:id", (req, res) => {
   const animal = animals.find((a) => a.id === Number(req.params.id));
   if (!animal) {
-    res.status(404).json({ error: "Animal not found" });
+    res.status(404).json({ error: "Animal not found" }); // originally I had an if else statement, but it makes more sense to check for an error then have the default "retunr" be the success case.
   }
 
   res.json(animal);
@@ -129,3 +129,5 @@ app.get("/api/adopted-animals", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+// app.listen is what starts the server and allows it to listen for requests.
